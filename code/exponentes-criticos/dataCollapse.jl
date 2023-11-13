@@ -33,12 +33,19 @@ join_vectors(a,b) = vcat(a,b)
 pade(p,x) = horner(p[1:length(a)],x)/hornerb(p[length(a)+1:end],x)
 
 ## Energy functions and gradient
-
-E(p) = sum(( ((xx->pade(p,xx)).(xdata)) - ydata).^2)
-∇E(p) = ForwardDiff.gradient(E,p)
+"""
+Esta función nos devuelve una nueva función E(p) y su gradiente ∇E, construida a partir de un conjunto de datos xdata,ydata
+"""
+function build_cost_function(xdata,ydata)
+    E(p) = sum(( ((xx->pade(p,xx)).(xdata)) - ydata).^2)
+    ∇E(p) = ForwardDiff.gradient(E,p)
+    E,∇E
+end
 
 ## Optimizers
-
+"""
+Descenso por gradiente tradicional
+"""
 function grad_descent(lr,p0,it=1000)
     p = p0
     i = 0
