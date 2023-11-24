@@ -1,1 +1,1 @@
-For sophisticate trivial parallelization in Serafin check [https://gitlab.com/-/snippets/2314562](https://gitlab.com/-/snippets/2314562).
+For examples about trivial parallelization in Serafin check [https://gitlab.com/-/snippets/2314562](https://gitlab.com/-/snippets/2314562).
